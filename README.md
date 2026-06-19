@@ -23,7 +23,7 @@ Place all six files in the same directory, set this directory as the MATLAB curr
 exp_KpVsMonteCarloNMSE
 exp_SNRVsMonteCarloNMSE
 exp_HistypSampNumScan
+```
 The scripts use the CDL-A channel model and save the generated figures as .png and .fig files.
 Simulation parameters, Monte Carlo trial counts, scan values, and enabled estimators can be configured directly in the corresponding experiment script.
 In the historical-snapshot experiment, S = 0 denotes online estimation using the current pilot, whereas S > 0 denotes offline estimation using historical pilot snapshots.
-```
