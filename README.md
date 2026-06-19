@@ -1,20 +1,19 @@
 # CCM-Aided Clustered Channel Estimation
 
-MATLAB implementation of the simulations for robust channel estimation using Channel Cluster Map (CCM) information.
+MATLAB implementation of the simulations for robust channel estimation using Channel Cluster Map (CCM).
 
 ## Requirements
 
-- MATLAB R2025b
-- No additional toolboxes are required.
+- MATLAB 
 
 ## Files
 
 - `Base.m`: System/channel configuration, channel generation, covariance construction, and estimation algorithms.
+- `MonteCarloNMSE_ScanParas.m`: Common parameter-scan routine.
+- `HisthpNumVsNMSE_ParaScan.m`: Historical-snapshot scan routine.
 - `exp_KpVsMonteCarloNMSE.m`: NMSE versus pilot-subcarrier number.
 - `exp_SNRVsMonteCarloNMSE.m`: NMSE versus SNR.
-- `MonteCarloNMSE_ScanParas.m`: Common parameter-scan routine.
 - `exp_HistypSampNumScan.m`: NMSE versus historical pilot-snapshot number under blockage.
-- `HisthpNumVsNMSE_ParaScan.m`: Historical-snapshot scan routine.
 
 ## Usage
 
