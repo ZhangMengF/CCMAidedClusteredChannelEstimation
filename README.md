@@ -122,17 +122,3 @@ New figures are PNG, with editable FIG where supported; no extra PDF export.
 | [Release index](RELEASE_REPRODUCIBILITY.md) | Exact manuscript/response-to-data mapping |
 | [Results index](results/README.md) | Current versus historical outputs |
 | [Audit report](results/release_audit/REPORT.md) | Previous reproduction checks and their scope |
-
-Root `results/Result.png` is historical; the current three-panel image is
-`results/combined_accelerated/Result.png`. No historical script/data is removed
-merely because it is not used in the final paper. All entries leave TEX untouched.
-
-Initialization and Pilot-only were completely replayed; other experiments have
-the verification scopes stated in the audit report. Numerical reproducibility
-does not imply pixel-identical rendering: a fresh Pilot-only export has slightly
-different legend spacing/crop from the approved PNG.
-
-**Before public release:** the authors must select a license and add final
-citation/DOI details when available. No license was found in the original or
-revised code folder; this preparation does not invent or grant one. MATLAB is
-a separate proprietary dependency and is not redistributed here.
