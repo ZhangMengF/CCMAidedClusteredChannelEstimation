@@ -1,0 +1,2 @@
+Kp,nmse_dense_dB,nmse_accelerated_dB,difference_dB,parameter_speedup,max_solver_relative_error,max_solver_nmse_difference_dB
+128,-11.632483838566,-11.5778925640972,0.0545912744688621,271.376913885203,1.13211127931242e-08,1.91117699444021e-09

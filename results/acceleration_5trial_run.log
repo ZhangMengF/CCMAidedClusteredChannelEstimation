@@ -1,0 +1,8 @@
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+Acceleration Kp=128 trial=1/5, parameter times=[328.9 1.265] s
+Acceleration Kp=128 trial=2/5, parameter times=[338.6 1.216] s
+Acceleration Kp=128 trial=3/5, parameter times=[328.8 1.252] s
+Acceleration Kp=128 trial=4/5, parameter times=[327.4 1.139] s
+Acceleration Kp=128 trial=5/5, parameter times=[351.4 1.147] s

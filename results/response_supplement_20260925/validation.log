@@ -1,0 +1,16 @@
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+PASS: FFT matvec relative error 5.75e-16; FFT-PCG estimate error 3.36e-09; interpolation, seeds, history and copula checks passed.
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+PASS: line-search failures, nonfinite trials, EM record alignment and 16 dense/diagonal AO traces.
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+PASS: default AO, frozen blocks, assumed/actual priors, Gaussian sampling (0.0247), covariance norm and isolated bootstrap RNG.
+PASS: saved supplementary FIGs open visibly

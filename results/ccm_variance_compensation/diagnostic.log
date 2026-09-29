@@ -1,0 +1,35 @@
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+
+Replay trial 42, axis 1, a=4
+AO iter 1 - EM: NLL=1059.9462, 0.14s 
+AO iter 1 - LBFGS: NLL=840.2308  mean_cds=1.364e+21  mean_casa=4109805.480 deg, 0.34s 
+AO iter 2 - EM: NLL=784.9214, 0.47s 
+AO iter 2 - LBFGS: NLL=777.9035  mean_cds=1.364e+21  mean_casa=4109806.730 deg, 0.68s 
+AO iter 3 - EM: NLL=772.6313, 0.81s 
+AO iter 3 - LBFGS: NLL=772.2207  mean_cds=1.364e+21  mean_casa=4109809.151 deg, 1.01s 
+
+Replay trial 60, axis 2, a=4
+AO iter 1 - EM: NLL=851.8436, 0.13s 
+AO iter 1 - LBFGS: NLL=833.5517  mean_cds=6.505e+38  mean_casa=193.448 deg, 0.32s 
+AO iter 2 - EM: NLL=786.4456, 0.45s 
+AO iter 2 - LBFGS: NLL=776.1304  mean_cds=6.505e+38  mean_casa=179.891 deg, 0.65s 
+AO iter 3 - EM: NLL=773.5203, 0.78s 
+AO iter 3 - LBFGS: NLL=769.9585  mean_cds=6.505e+38  mean_casa=178.453 deg, 0.97s 
+
+Replay trial 64, axis 2, a=4
+AO iter 1 - EM: NLL=962.9622, 0.13s 
+AO iter 1 - LBFGS: NLL=884.7984  mean_cds=7.855e-06  mean_casa=2036263240478538985938579337244573696.000 deg, 0.30s 
+AO iter 2 - EM: NLL=851.2286, 0.43s 
+AO iter 2 - LBFGS: NLL=847.2079  mean_cds=7.828e-06  mean_casa=2036263240478538985938579337244573696.000 deg, 0.61s 
+AO iter 3 - EM: NLL=835.9311, 0.73s 
+AO iter 3 - LBFGS: NLL=835.3145  mean_cds=7.806e-06  mean_casa=2036263240478538985938579337244573696.000 deg, 0.93s 
+
+Replay trial 97, axis 1, a=1
+AO iter 1 - EM: NLL=742.1092, 0.12s 
+AO iter 1 - LBFGS: NLL=702.1942  mean_cds=1.783e-07  mean_casa=36.437 deg, 0.30s 
+AO iter 2 - EM: NLL=697.7132, 0.43s 
+AO iter 2 - LBFGS: NLL=673.5891  mean_cds=2.336e-06  mean_casa=72.556 deg, 0.60s 
+AO iter 3 - EM: NLL=670.4137, 0.73s 
+AO iter 3 - LBFGS: NLL=657.6171  mean_cds=2.322e-06  mean_casa=79.782 deg, 0.92s 

@@ -1,0 +1,85 @@
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+PASS: FFT matvec relative error 5.75e-16; FFT-PCG estimate error 3.36e-09; interpolation, seeds, history and copula checks passed.
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+Initialization trial 1/20
+Initialization trial 2/20
+Initialization trial 3/20
+Initialization trial 4/20
+Initialization trial 5/20
+Initialization trial 6/20
+Initialization trial 7/20
+Initialization trial 8/20
+Initialization trial 9/20
+Initialization trial 10/20
+Initialization trial 11/20
+Initialization trial 12/20
+Initialization trial 13/20
+Initialization trial 14/20
+Initialization trial 15/20
+Initialization trial 16/20
+Initialization trial 17/20
+Initialization trial 18/20
+Initialization trial 19/20
+Initialization trial 20/20
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+Copula r=0.0 trial=10/100 elapsed=14.7s
+Copula r=0.0 trial=20/100 elapsed=29.0s
+Copula r=0.0 trial=30/100 elapsed=43.3s
+Copula r=0.0 trial=40/100 elapsed=57.8s
+Copula r=0.0 trial=50/100 elapsed=72.4s
+Copula r=0.0 trial=60/100 elapsed=86.6s
+Copula r=0.0 trial=70/100 elapsed=100.8s
+Copula r=0.0 trial=80/100 elapsed=114.9s
+Copula r=0.0 trial=90/100 elapsed=129.0s
+Copula r=0.0 trial=100/100 elapsed=143.3s
+Copula r=0.0 NMSE=[-6.8317 -5.7712 -6.4434] dB
+Copula r=0.2 trial=10/100 elapsed=13.3s
+Copula r=0.2 trial=20/100 elapsed=26.4s
+Copula r=0.2 trial=30/100 elapsed=39.4s
+Copula r=0.2 trial=40/100 elapsed=52.3s
+Copula r=0.2 trial=50/100 elapsed=65.2s
+Copula r=0.2 trial=60/100 elapsed=78.1s
+Copula r=0.2 trial=70/100 elapsed=91.2s
+Copula r=0.2 trial=80/100 elapsed=104.1s
+Copula r=0.2 trial=90/100 elapsed=117.0s
+Copula r=0.2 trial=100/100 elapsed=130.1s
+Copula r=0.2 NMSE=[-6.8553 -5.7791 -6.4464] dB
+Copula r=0.4 trial=10/100 elapsed=12.9s
+Copula r=0.4 trial=20/100 elapsed=25.8s
+Copula r=0.4 trial=30/100 elapsed=38.8s
+Copula r=0.4 trial=40/100 elapsed=51.7s
+Copula r=0.4 trial=50/100 elapsed=64.6s
+Copula r=0.4 trial=60/100 elapsed=77.7s
+Copula r=0.4 trial=70/100 elapsed=90.7s
+Copula r=0.4 trial=80/100 elapsed=103.7s
+Copula r=0.4 trial=90/100 elapsed=116.6s
+Copula r=0.4 trial=100/100 elapsed=129.5s
+Copula r=0.4 NMSE=[-6.907 -5.7925 -6.4539] dB
+Copula r=0.6 trial=10/100 elapsed=13.2s
+Copula r=0.6 trial=20/100 elapsed=26.2s
+Copula r=0.6 trial=30/100 elapsed=39.1s
+Copula r=0.6 trial=40/100 elapsed=52.0s
+Copula r=0.6 trial=50/100 elapsed=64.9s
+Copula r=0.6 trial=60/100 elapsed=78.0s
+Copula r=0.6 trial=70/100 elapsed=91.2s
+Copula r=0.6 trial=80/100 elapsed=104.2s
+Copula r=0.6 trial=90/100 elapsed=117.2s
+Copula r=0.6 trial=100/100 elapsed=130.1s
+Copula r=0.6 NMSE=[-6.9527 -5.7603 -6.4345] dB
+Copula r=0.8 trial=10/100 elapsed=13.0s
+Copula r=0.8 trial=20/100 elapsed=26.1s
+Copula r=0.8 trial=30/100 elapsed=39.1s
+Copula r=0.8 trial=40/100 elapsed=52.0s
+Copula r=0.8 trial=50/100 elapsed=65.1s
+Copula r=0.8 trial=60/100 elapsed=78.0s
+Copula r=0.8 trial=70/100 elapsed=91.0s
+Copula r=0.8 trial=80/100 elapsed=103.9s
+Copula r=0.8 trial=90/100 elapsed=116.7s
+Copula r=0.8 trial=100/100 elapsed=129.9s
+Copula r=0.8 NMSE=[-7.0663 -5.7524 -6.4127] dB

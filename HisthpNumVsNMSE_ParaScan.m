@@ -16,6 +16,7 @@ function HisthpNumVsNMSE_ParaScan(sys, chann, simu, estor, funcs, S_values, MCNM
 num_S  = length(S_values);
 num_J  = length(scan_values);
 NMSE_esti_all = zeros(num_S, num_J);
+trials=cell(num_S,num_J);
 
 start = tic;
 for j = 1:num_J
@@ -29,8 +30,8 @@ for j = 1:num_J
     for i = 1:num_S
         S = S_values(i);
 
-        rng(1000*j + 100*i);  % Use a deterministic seed for reproducibility.
-        [~, ~, ~, ~, NMSE_esti_all(i, j), ~] = ...
+        rng(1000*j + 100*i,'twister');  % Use a deterministic seed for reproducibility.
+        [~, ~, ~, ~, NMSE_esti_all(i, j), ~,~,~,~,trials{i,j}] = ...
             funcs.CalcuNMSEsByMonteCarlo(sys, chann, simu, estor, pilot_sc, pilot_ant, S, MCNMSEsSwitch);
 
         fprintf('\n====== [%s] %s=%g, S=%d (%d/%d, %d/%d) finished, 历时%.1fs ======\n', ...
@@ -66,13 +67,15 @@ title({['\fontsize{8}\rm ', param_str1], ...
     ['\fontsize{8}\rm ', param_str2], ...
     ['\fontsize{8}\bf AO Estimated NMSE vs S  (scan: ' scan_name ')']});
 
-% Save the figure in the current working directory.
-currentTime = char(datetime('now', 'Format', 'MMdd_HHmm'));
-filename_png = sprintf('HistSampScan_%s_%s.png', scan_name, currentTime);
-filename_fig = sprintf('HistSampScan_%s_%s.fig', scan_name, currentTime);
-saveas(f, fullfile(pwd, filename_png));
-saveas(f, fullfile(pwd, filename_fig));
-fprintf('\nFigure saved: %s, %s\n', filename_png, filename_fig);
+folder=fullfile(fileparts(mfilename('fullpath')),'results'); name=['history_',scan_name];
+result=struct('sys',sys,'channel',chann,'simu',simu,'estor',estor, ...
+    'scan_name',scan_name,'scan_values',scan_values,'S_values',S_values, ...
+    'seed_rule','1000*curve + 100*history_index','trials',{trials});
+result.values=[S_values(:),10*log10(NMSE_esti_all)];
+result.columns=[{'S'},cellstr(compose('curve_%d',1:num_J))];
+SaveResult(folder,name,result);
+savefig(f,fullfile(folder,[name,'.fig']));
+exportgraphics(f,fullfile(folder,[name,'.png']),'Resolution',200);
 
 end
 

@@ -1,0 +1,160 @@
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+Starting parallel pool (parpool) using the 'Processes' profile ...
+Connected to parallel pool with 2 workers.
+Compensation trial 2 finished
+Compensation trial 1 finished
+Parallel pool using the 'Processes' profile is shutting down.
+  Columns 1 through 7
+
+    1.0000    0.5000   -6.1806   -6.5221   -5.6660    9.8992    9.9840
+    1.0000    1.0000   -5.4975   -6.2177   -5.4975   10.0387    9.9187
+    1.0000    2.0000   -5.2672   -5.7088   -5.1184   10.2852    9.9720
+    1.0000    4.0000   -4.8343   -5.1943   -4.8177   10.2201   10.1686
+    2.0000    0.5000   -5.9588   -6.3029   -5.3830    9.6954    9.9531
+    2.0000    1.0000   -5.4975   -6.2177   -5.4975   10.0387    9.9187
+    2.0000    2.0000   -5.7582   -5.8788   -5.6344   10.2517   10.4784
+    2.0000    4.0000   -1.9109   -4.9859   -2.9629   11.0782   11.6659
+
+  Columns 8 through 9
+
+    7.2787    7.7319
+    6.8869    6.3981
+    6.9933    7.4845
+    7.2032    6.6535
+    6.8871    7.8383
+    6.8869    6.3981
+    7.3727    8.6055
+   10.9893    7.8998
+
+时延分辨率:4.1 ns, 角度分辨率:3.6 deg 
+平均每簇参数自由度: 时延-5.4, 角度-11.2, 总-60.4 
+RMS时延扩展:100.22 ns, 相干带宽(50%):2.00 MHz, 相干带宽(90%):0.20 MHz
+Starting parallel pool (parpool) using the 'Processes' profile ...
+Connected to parallel pool with 8 workers.
+Compensation trial 3 finished
+Compensation trial 5 finished
+Compensation trial 2 finished
+Compensation trial 6 finished
+Compensation trial 8 finished
+Compensation trial 4 finished
+Compensation trial 1 finished
+Compensation trial 7 finished
+Compensation trial 26 finished
+Compensation trial 38 finished
+Compensation trial 20 finished
+Compensation trial 14 finished
+Compensation trial 44 finished
+Compensation trial 56 finished
+Compensation trial 32 finished
+Compensation trial 50 finished
+Compensation trial 25 finished
+Compensation trial 37 finished
+Compensation trial 43 finished
+Compensation trial 13 finished
+Compensation trial 31 finished
+Compensation trial 55 finished
+Compensation trial 49 finished
+Compensation trial 19 finished
+Compensation trial 24 finished
+Compensation trial 42 finished
+Compensation trial 36 finished
+Compensation trial 12 finished
+Compensation trial 54 finished
+Compensation trial 48 finished
+Compensation trial 18 finished
+Compensation trial 30 finished
+Compensation trial 23 finished
+Compensation trial 35 finished
+Compensation trial 41 finished
+Compensation trial 11 finished
+Compensation trial 53 finished
+Compensation trial 47 finished
+Compensation trial 29 finished
+Compensation trial 17 finished
+Compensation trial 22 finished
+Compensation trial 34 finished
+Compensation trial 52 finished
+Compensation trial 40 finished
+Compensation trial 10 finished
+Compensation trial 46 finished
+Compensation trial 28 finished
+Compensation trial 16 finished
+Compensation trial 21 finished
+Compensation trial 33 finished
+Compensation trial 51 finished
+Compensation trial 39 finished
+Compensation trial 9 finished
+Compensation trial 45 finished
+Compensation trial 15 finished
+Compensation trial 27 finished
+Compensation trial 59 finished
+Compensation trial 62 finished
+Compensation trial 74 finished
+Compensation trial 68 finished
+Compensation trial 80 finished
+Compensation trial 65 finished
+Compensation trial 71 finished
+Compensation trial 77 finished
+Compensation trial 58 finished
+Compensation trial 61 finished
+Compensation trial 67 finished
+Compensation trial 73 finished
+Compensation trial 64 finished
+Compensation trial 79 finished
+Compensation trial 76 finished
+Compensation trial 70 finished
+Compensation trial 57 finished
+Compensation trial 60 finished
+Compensation trial 66 finished
+Compensation trial 63 finished
+Compensation trial 72 finished
+Compensation trial 78 finished
+Compensation trial 69 finished
+Compensation trial 75 finished
+Compensation trial 81 finished
+Compensation trial 82 finished
+Compensation trial 84 finished
+Compensation trial 83 finished
+Compensation trial 87 finished
+Compensation trial 85 finished
+Compensation trial 88 finished
+Compensation trial 86 finished
+Compensation trial 89 finished
+Compensation trial 90 finished
+Compensation trial 94 finished
+Compensation trial 91 finished
+Compensation trial 95 finished
+Compensation trial 93 finished
+Compensation trial 92 finished
+Compensation trial 96 finished
+Compensation trial 97 finished
+Compensation trial 98 finished
+Compensation trial 99 finished
+Compensation trial 100 finished
+Parallel pool using the 'Processes' profile is shutting down.
+   1.0e+46 *
+
+  Columns 1 through 7
+
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.0000    0.0000
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.0000    0.0000
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.0000    0.0000
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.0000    0.0000
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.0000    0.0000
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.0000    0.0000
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.0000    0.0000
+    0.0000    0.0000   -0.0000   -0.0000   -0.0000    0.6505    0.0000
+
+  Columns 8 through 9
+
+    0.0000    0.0000
+    0.0000    0.0000
+    0.0000    0.0000
+    0.0000    0.0000
+    0.0000    0.0000
+    0.0000    0.0000
+    0.0000    0.0000
+    2.0828    0.0000
+
