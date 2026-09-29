@@ -1,20 +1,37 @@
-# CCM-aided channel estimation
+# CCM-Aided Clustered Channel Estimation
 
-MATLAB code and saved results for the revised manuscript **and its response
-letter**. Beam-delay diagonal parameter fitting and FFT-PCG final LMMSE solves
-are enabled by default. Use the selected entries below for the final results;
-historical controls are retained for provenance, not silently substituted.
+MATLAB implementation of channel cluster map (CCM)-aided channel estimation
+for clustered SIMO-OFDM channels. The estimator combines uncertain cluster
+delay/angle priors with pilot-based estimation of cluster powers and
+intra-cluster spreads.
 
-## Requirements and first check
+The package provides:
 
-- Tested with MATLAB R2025a Update 1 on Linux; other releases are not certified.
-- Parallel Computing Toolbox is needed for the default parallel Fig.1,
-  assumed-variance and acceleration-NMSE-recheck entries. Fig.1 and
-  assumed-variance entries accept `workers=0` for serial execution.
-- No external dataset, Sionna, Python, GPU, Optimization Toolbox or Signal
-  Processing Toolbox is required by these experiments.
-- Open MATLAB in this directory. `which Base` must point to this package,
-  not another version on your MATLAB path.
+- CDL-parameter-based channel generation and Monte Carlo evaluation.
+- Alternating power/spread estimation using EM/SQUAREM and L-BFGS.
+- Beam-delay diagonal likelihood approximation for fast parameter fitting.
+- FFT-PCG LMMSE channel estimation.
+- Oracle, CPM-aided, fixed-profile, and pilot-only comparison methods.
+- Experiments on initialization, historical observations, delay-angle coupling,
+  prior uncertainty, and parameter-estimation accuracy.
+
+Both computational accelerations are enabled by default.
+
+## Requirements
+
+Tested with **MATLAB R2025a Update 1 on Linux**.
+
+Parallel Computing Toolbox is required for the default parallel experiments.
+The combined comparison and assumed-variance experiments accept a worker count
+of `0` for serial execution. No external datasets, Python, Sionna, GPU,
+Optimization Toolbox, or Signal Processing Toolbox are required.
+
+Open MATLAB in this directory. Check that `which Base` points to this
+repository rather than another copy on the MATLAB path.
+
+## Quick start
+
+Run the numerical checks:
 
 ```matlab
 test_Numerics;
@@ -22,59 +39,63 @@ test_OptimizerSafety;
 test_ResponseExperiments;
 ```
 
-These are small implementation checks, not full Monte Carlo experiments.
-Start with saved-data plotting if you only want to inspect results. Full runs,
-especially the dense timing baseline, can be slow.
-
-## Reproduce manuscript and response results
-
-Run entries individually from this directory. Use a fresh output root to avoid
-overwriting supplied evidence. Each experiment creates its output folder.
+For a short initialization experiment:
 
 ```matlab
-out = fullfile(pwd,'results','my_reproduction');
-
-% Main Fig.1: all panels, including accelerated online/offline fitting.
-exp_CombinedResults(fullfile(out,'combined'),8);
-% Use 0 instead of 8 for serial execution. Plotting is included.
-
-% Initialization: 20 trials, 0:30 recorded, 0:15 displayed.
-exp_InitializationConvergence(20,fullfile(out,'initialization'));
-PlotResults(fullfile(out,'initialization'),fullfile(out,'initialization'),{'initialization'});
-
-% Main coupling table / Response R1.3.
-exp_CopulaCoupling(100,fullfile(out,'copula'));
-
-% Response R1.1: LoS table.
-exp_ResponseLoS(100,fullfile(out,'los'));
-
-% Response R1.5: six pilot-only methods, 100/50 trials per SNR/Kp point.
-exp_PilotOnlyComparison([100,50],fullfile(out,'pilot_only'));
-PlotResults(fullfile(out,'pilot_only'),fullfile(out,'pilot_only'),{'pilot_only'});
-
-% Response R2.4: 100 trials, 15 dB, Kp=64; close any existing pool first.
-exp_AssumedVarianceCompensation(100,fullfile(out,'assumed_variance'),4,15,64);
-plot_AssumedVarianceCompensation(fullfile(out,'assumed_variance'));
-
-% Response R2.5: finite-subpath model, 20 trials, 1/8 fitting snapshots.
-exp_ParameterAccuracy(20,fullfile(out,'accuracy'),true);
-plot_ParameterAccuracy(fullfile(out,'accuracy'));
-
-% Response R3.4: power/spread ablation table.
-exp_ParameterAblation(100,fullfile(out,'ablation'));
+out = fullfile(pwd,'results','quick_start');
+exp_InitializationConvergence(2,out);
+PlotResults(out,out,{'initialization'});
 ```
 
-The acceleration table uses separate NMSE and timing datasets. Its exact
-sources and commands are in [RELEASE_REPRODUCIBILITY.md](RELEASE_REPRODUCIBILITY.md).
-Default `exp_Acceleration` alone reproduces the older dataset, not every current
-table entry. Run timing experiments alone, without competing simulation jobs.
+This uses two independent trials for a quick check. Use 20 trials for the
+supplied initialization configuration.
 
-**Legacy wrappers are not exact final-paper recipes:** `run_all` runs four
-earlier studies and can overwrite root results. `run_ResponseExperiments` also
-runs the superseded prior-mismatch control and uses 100 accuracy trials, whereas
-the response uses 20. Both remain unchanged for backward compatibility.
+## Experiments
 
-## Redraw saved results without simulation
+Run entries individually from the repository directory. Choose a fresh output
+folder to avoid overwriting saved results.
+
+| Experiment | Entry | Example configuration |
+|---|---|---|
+| NMSE versus SNR, pilot count, and history length | `exp_CombinedResults(folder,8)` | 100/50/100 trials per configuration; eight workers |
+| Initialization convergence | `exp_InitializationConvergence(20,folder)` | 5 dB, 64 pilots, three initializations |
+| Parameter-estimation acceleration | `exp_Acceleration([20,20,20,5,5],folder)` | Dense versus accelerated fitting |
+| NMSE-only acceleration comparison | `exp_AccelerationNMSERecheck(100,folder,8)` | 100 paired trials per pilot count |
+| Delay-angle coupling | `exp_CopulaCoupling(100,folder)` | Gaussian-copula dependence, fixed marginal profiles |
+| Pilot-only interpolation | `exp_PilotOnlyComparison([100,50],folder)` | Six LS-based methods; SNR and pilot-count scans |
+| LoS channel estimation | `exp_ResponseLoS(100,folder)` | CDL-D-based channel, 32/64 pilots |
+| Assumed prior-error mismatch | `exp_AssumedVarianceCompensation(100,folder,4,15,64)` | 100 trials, four workers, 15 dB, 64 pilots |
+| Parameter and covariance accuracy | `exp_ParameterAccuracy(20,folder,true)` | Finite subpaths, 1/8 fitting snapshots |
+| Power/spread ablation | `exp_ParameterAblation(100,folder)` | Fixed, power-only, spread-only, and joint fitting |
+
+For example, run the combined comparison with:
+
+```matlab
+folder = fullfile(pwd,'results','my_comparison');
+exp_CombinedResults(folder,8);  % use 0 for serial execution
+```
+
+It saves per-configuration checkpoints and generates the three-panel figure.
+Use a fresh folder after source changes; compatible completed checkpoints are
+reused on restart.
+
+The individual scan scripts `exp_SNRVsMonteCarloNMSE`,
+`exp_KpVsMonteCarloNMSE`, and `exp_HistypSampNumScan` are also available.
+In the first two scripts, set `estor.pilot_only_method` to `dft`, `linear`,
+`quadratic`, `fir`, `pchip`, or `spline`. DFT is the default.
+
+**Timing experiments:** run `exp_Acceleration` alone, without competing jobs.
+Runtime depends on hardware and system load. The parallel NMSE-only recheck
+does not measure acceleration speedup. Close an existing parallel pool before
+starting `exp_AssumedVarianceCompensation`, which creates its own pool.
+
+Batch helpers `run_all` and `run_ResponseExperiments` run predefined subsets,
+not every experiment. Inspect their settings before use; their default outputs
+may overwrite existing result files.
+
+## Plot saved data
+
+Simulation and plotting are separate. To redraw the supplied results:
 
 ```matlab
 plot_CombinedResults(fullfile(pwd,'results','combined_accelerated'));
@@ -83,56 +104,56 @@ plot_AssumedVarianceCompensation('results/assumed_variance_compensation_15dB_Kp6
 plot_ParameterAccuracy('results/parameter_accuracy_truncated');
 ```
 
-Plot functions do not regenerate channels. Dedicated plotters write into their
-input directory; copy that result directory first to preserve its PNG/FIG.
-Fig.1 needs `figure_assets/Fig1_layout.fig`; retain this asset when distributing.
-New figures are PNG, with editable FIG where supported; no extra PDF export.
+Dedicated plotters save into their input directory; copy the result directory
+first if you want to preserve its existing figures. The combined plot uses
+`figure_assets/Fig1_layout.fig`, which must remain in the package.
 
-## Reproducibility and model conventions
+Outputs are MAT data, CSV summaries, PNG images, and editable FIG files where
+supported. Plotting does not regenerate channels. MATLAB rendering can vary
+slightly across environments even when numerical data agree.
 
-- Fixed Twister seeds and paired channel/noise/prior draws are used. Monte Carlo
-  counts are independent trials, not historical pilot-snapshot counts.
-- NMSE pools squared errors and channel energies before conversion to dB.
-  MAT files retain configurations and raw statistics; CSV values are unrounded.
-- Reproduction requires unchanged code, seeds, parameters and trial counts.
-  MATLAB versions/thread counts may cause small floating-point differences;
-  runtime and speedup depend on hardware/load, not just seeds.
-- Resume only compatible checkpoints. Fig.1 checks its source snapshot; use a
-  fresh folder after source changes or to force an independent complete rerun.
-- Ordinary experiments use CDL macro parameters and finite weighted subpaths,
-  not a full TR 38.901 implementation. The copula control instead samples its
-  marginals with equal-power rays. Oracle integrates the true profile and CCM
-  uncertainty, not the realized subpath covariance.
-- R2.4 is a controlled **spread-refitting study with frozen powers and explicit
-  spread bounds**, not an unchanged joint-fit estimator. See
-  [IMPLEMENTATION_NOTES.md](IMPLEMENTATION_NOTES.md) for full details.
-- Fig.1 uses DFT at every Pilot-only point. DFT wins 7/10 comparison conditions;
-  the separate equal-weight linear-domain diagnostic favors linear interpolation.
-  No per-point method switching is used.
+## Reproducibility
 
-## Files and verification status
+- Experiments explicitly set Twister random seeds. Compared methods use paired
+  channel, noise, and prior realizations.
+- Monte Carlo counts denote independent trials, not historical pilot snapshots.
+- NMSE is computed from pooled squared errors and channel energies, then
+  converted to dB. CSV summaries are unrounded.
+- Preserve code, parameters, seeds, and trial counts when reproducing results.
+  MATLAB versions and thread counts can introduce small floating-point differences.
+- Standard fitting uses AO/EM/L-BFGS iteration limits of 3/3/2. The initialization
+  study records 30 AO iterations and plots iterations 0 through 15.
+- The supplied combined result is
+  [results/combined_accelerated/Result.png](results/combined_accelerated/Result.png).
+  Other result variants are retained; see the [data index](results/README.md)
+  for their configurations and provenance.
 
-| Item | Purpose |
+## Model conventions
+
+The channel generator uses CDL macro parameters with finite weighted subpaths;
+it is not a full implementation of 3GPP TR 38.901. The copula experiment instead
+uses equal-power rays sampled from fixed delay and angular marginals.
+
+Oracle uses true cluster powers/spreads and the continuous truncated profile
+while retaining CCM prior uncertainty, rather than using realized subpath
+covariances.
+
+The assumed-variance experiment isolates spread adaptation: it freezes calibrated
+powers and constrains fitted spreads. It is a controlled variant of joint
+power/spread fitting. The ordinary estimator does not enable those extra bounds.
+
+## Code organization
+
+| Files | Purpose |
 |---|---|
-| `Base.m` | Shared channel, estimator and numerical routines |
-| `exp_*.m` | Independent experiments; selected entries listed above |
-| `PlotResults.m`, `plot_*.m` | Saved-data plotting |
-| `test_*.m` | Small numerical regression checks |
-| `figure_assets/` | Frozen Fig.1 layout and historical provenance |
-| [Release index](RELEASE_REPRODUCIBILITY.md) | Exact manuscript/response-to-data mapping |
-| [Results index](results/README.md) | Current versus historical outputs |
-| [Audit report](results/release_audit/REPORT.md) | Previous reproduction checks and their scope |
+| `Base.m` | Shared channel generation, estimators, and numerical routines |
+| `exp_*.m` | Experiment entry points |
+| `PlotResults.m`, `plot_*.m` | Plotting from saved data |
+| `test_*.m` | Numerical and regression checks |
+| `SaveResult.m`, `ResponseStatistics.m` | Result export and statistical summaries |
+| `GaussianCovarianceTools.m` | Structured covariance diagnostics and Gaussian controls |
+| `figure_assets/` | Reusable plotting assets |
+| `results/` | Saved configurations, numerical results, and figures |
 
-Root `results/Result.png` is historical; the current three-panel image is
-`results/combined_accelerated/Result.png`. No historical script/data is removed
-merely because it is not used in the final paper. All entries leave TEX untouched.
-
-Initialization and Pilot-only were completely replayed; other experiments have
-the verification scopes stated in the audit report. Numerical reproducibility
-does not imply pixel-identical rendering: a fresh Pilot-only export has slightly
-different legend spacing/crop from the approved PNG.
-
-**Before public release:** the authors must select a license and add final
-citation/DOI details when available. No license was found in the original or
-revised code folder; this preparation does not invent or grant one. MATLAB is
-a separate proprietary dependency and is not redistributed here.
+Detailed algorithm conventions and additional controls are documented in
+[IMPLEMENTATION_NOTES.md](IMPLEMENTATION_NOTES.md).
